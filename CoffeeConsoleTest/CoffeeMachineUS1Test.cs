@@ -52,7 +52,9 @@ namespace CoffeeConsoleTest
         [Test]
         public void Choice_You_Can_choose_minimum_0_Sugar_Or_2_sugars()
         {
-            
+            Chocolate chocolate = new Chocolate();
+            DrinkChoice drink = new DrinkChoice();
+            Check.ThatCode(() => drink.AddSugar(3)).Throws<Exception>();
         }
     }
 
@@ -118,6 +120,7 @@ namespace CoffeeConsoleTest
         public string DrinkChoiceUser { get; private set; }
         private List<string> choiceAvailable = new List<string>();
         private int sugar = 0;
+        private bool stick = false;
 
         public DrinkChoice()
         {   
@@ -143,6 +146,7 @@ namespace CoffeeConsoleTest
                 throw new Exception("The number of sugar need to be in minimum 0 and maximum 2");
             }
             sugar = numberSugar;
+            stick = true;
         }
     }
 }
