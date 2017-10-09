@@ -65,6 +65,15 @@ namespace CoffeeConsoleTest
             drink.AddSugar(1);
             Check.That(drink.sugar).Equals(1);
         }
+
+        [Test]
+        public void Need_To_Return_One_Stick()
+        {
+            Chocolate chocolate = new Chocolate();
+            DrinkChoice drink = new DrinkChoice();
+            drink.AddSugar(1);
+            Check.That(drink.stick).Equals(true);
+        }
     }
 
     public class DrinkChoice
