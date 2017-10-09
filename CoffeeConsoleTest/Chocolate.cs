@@ -18,5 +18,9 @@ namespace CoffeeConsoleTest
             return -1671490175 + EqualityComparer<string>.Default.GetHashCode(chocolate);
         }
 
+        public override string ToString()
+        {
+            return chocolate;
+        }
     }
 }

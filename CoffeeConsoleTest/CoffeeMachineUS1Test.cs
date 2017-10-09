@@ -15,15 +15,7 @@ namespace CoffeeConsoleTest
         private const string ChcolateChoice = "Chocolate";
         private const string TeaChoice = "Tea";
 
-        [TestCase(CoffeeChoice)]
-        [TestCase(ChcolateChoice)]
-        [TestCase(TeaChoice)]
-        public void Choice_Should_Choice_Only_Between_Chocolate_Coffee_Tea(string choice)
-        {
-            DrinkChoice drink = new DrinkChoice();
-            drink.Choice(choice);
-            Check.That(drink.DrinkChoiceUser).IsEqualTo(choice);
-        }
+        
 
 
         [Test]
@@ -74,40 +66,70 @@ namespace CoffeeConsoleTest
             drink.AddSugar(1);
             Check.That(drink.stick).Equals(true);
         }
+
+        [Test]
+        public void Choice_Chocolate_To_Drink()
+        {
+            DrinkChoice drink = new DrinkChoice();
+            drink.Choice(new Chocolate());
+            Check.That(drink.Chocolate.ToString()).Equals("chocolate");
+
+        }
+
+        [Test]
+        public void Choice_Coffee_To_Drink()
+        {
+            DrinkChoice drink = new DrinkChoice();
+            drink.Choice(new Coffee());
+            Check.That(drink.Coffee.ToString()).Equals("coffee");
+        }
+
+        [Test]
+        public void Choice_Tea_To_Drink()
+        {
+            DrinkChoice drink = new DrinkChoice();
+            drink.Choice(new Tea());
+            Check.That(drink.Tea.ToString()).Equals("tea");
+        }
+
+        
     }
 
     public class DrinkChoice
     {
-        public string DrinkChoiceUser { get; private set; }
-        private List<string> choiceAvailable = new List<string>();
+        public Tea Tea { get; private set; } = null;
+        public Coffee Coffee {get;  private set;} = null;
+        public Chocolate Chocolate { get; private set; } = null;
+
         public int sugar { get; set; } = 0;
         public bool stick { get; private set; } = false;
 
-        public DrinkChoice()
-        {   
 
-            choiceAvailable.Add("Chocolate");
-            choiceAvailable.Add("Coffee");
-            choiceAvailable.Add("Tea");
-        }
-
-        public void Choice(string choice)
-        {
-            if (choiceAvailable.Contains(choice) == false)
-            {
-                throw new Exception("The choice need to be between Chocolate, Coffee, Tea");
-            }
-            DrinkChoiceUser = choice;
-        }
 
         public void AddSugar(int numberSugar)
         {
+            
             if (numberSugar < 0 || numberSugar>2)
             {
                 throw new Exception("The number of sugar need to be in minimum 0 and maximum 2");
             }
             sugar = numberSugar;
             stick = true;
+        }
+
+        public void Choice(Chocolate chocolate)
+        {
+            this.Chocolate = chocolate;
+        }
+
+        public void Choice(Coffee coffee)
+        {
+            this.Coffee = coffee;
+        }
+
+        internal void Choice(Tea tea)
+        {
+            Tea = tea;
         }
     }
 }

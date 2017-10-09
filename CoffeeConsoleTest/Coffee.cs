@@ -22,5 +22,10 @@ namespace CoffeeConsoleTest
         {
             return 105650377 + EqualityComparer<string>.Default.GetHashCode(coffee);
         }
+
+        public override string ToString()
+        {
+            return coffee;
+        }
     }
 }
