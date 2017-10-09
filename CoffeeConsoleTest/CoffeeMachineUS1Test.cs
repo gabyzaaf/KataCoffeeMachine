@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeConsoleTest
 {
- 
+
     public class CoffeeMachineUS1Test
     {
         private const string CoffeeChoice = "Coffee";
@@ -56,62 +56,14 @@ namespace CoffeeConsoleTest
             DrinkChoice drink = new DrinkChoice();
             Check.ThatCode(() => drink.AddSugar(3)).Throws<Exception>();
         }
-    }
 
-    public class Tea
-    {
-        private readonly string chocolate = "tea";
-
-        public override bool Equals(object obj)
+        [Test]
+        public void Choice_Need_To_Add_One_Suggar()
         {
-            var tea = obj as Tea;
-            return tea != null &&
-                   chocolate == tea.chocolate;
-        }
-
-        public override int GetHashCode()
-        {
-            return -1671490175 + EqualityComparer<string>.Default.GetHashCode(chocolate);
-        }
-    }
-
-    public class Chocolate
-    {
-        private readonly string chocolate = "chocolate";
-
-        public override bool Equals(object obj)
-        {
-            var chocolate = obj as Chocolate;
-            return chocolate != null &&
-                   this.chocolate == chocolate.chocolate;
-        }
-
-        public override int GetHashCode()
-        {
-            return -1671490175 + EqualityComparer<string>.Default.GetHashCode(chocolate);
-        }
-
-    }
-
-    public class Coffee
-    {
-        private readonly string coffee = "coffee";
-
-        public Coffee()
-        {
-
-        }
-
-        public override bool Equals(object obj)
-        {
-            var coffee = obj as Coffee;
-            return coffee != null &&
-                   this.coffee == coffee.coffee;
-        }
-
-        public override int GetHashCode()
-        {
-            return 105650377 + EqualityComparer<string>.Default.GetHashCode(coffee);
+            Chocolate chocolate = new Chocolate();
+            DrinkChoice drink = new DrinkChoice();
+            drink.AddSugar(1);
+            Check.That(drink.sugar).Equals(1);
         }
     }
 
@@ -119,8 +71,8 @@ namespace CoffeeConsoleTest
     {
         public string DrinkChoiceUser { get; private set; }
         private List<string> choiceAvailable = new List<string>();
-        private int sugar = 0;
-        private bool stick = false;
+        public int sugar { get; set; } = 0;
+        public bool stick { get; private set; } = false;
 
         public DrinkChoice()
         {   
