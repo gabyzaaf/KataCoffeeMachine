@@ -21,7 +21,7 @@ namespace CoffeeConsoleTest
             }
 
             Tea tea = new Tea();
-            Check.That(tea.MachineEncoding).Equals("T:"); 
+            Check.That(tea.MachineEncoding).Equals("T"); 
         }
 
         [TestCase("Chocolate")]
@@ -87,81 +87,5 @@ namespace CoffeeConsoleTest
 
 
         
-    }
-
-    internal class Stick
-    {
-        private int numberStick;
-
-        public Stick()
-        {
-            
-        }
-
-        public void ObtainOne()
-        {
-            numberStick = 1;
-        }
-
-        internal string Display()
-        {
-            return $":{numberStick.ToString()}";
-        }
-    }
-
-    internal class Sugar
-    {
-        private int sugar;
-
-
-        public Sugar(int sugar)
-        {
-            this.sugar = sugar;
-        }
-
-        public bool IsValid()
-        {
-            if (this.sugar <0 || this.sugar > 2 )
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public string NumberSugarForTheScreen()
-        {
-            return $":{this.sugar.ToString()}";
-        }
-
-
-        
-    }
-
-    internal class Coffee
-    {
-        public string MachineEncoding { get; private set; } = "C";
-
-
-    }
-
-    internal class Chocolate
-    {
-        public string MachineEncoding { get; private set; } = "H:";
-
-        public Chocolate()
-        {
-
-        }
-    }
-
-    public class Tea
-    {
-        public string MachineEncoding { get; private set; } = "T:";
-
-        public string GetEncoding()
-        {
-            return MachineEncoding;
-        }
-
     }
 }
