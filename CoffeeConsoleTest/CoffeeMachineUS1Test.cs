@@ -32,7 +32,7 @@ namespace CoffeeConsoleTest
                 throw new Exception("The choose is not a chocolate");
             }
 
-            Chocolate chocolate = new Chocolate();
+            Coff chocolate = new Coff();
             Check.That(chocolate.MachineEncoding).Equals("H:");
         }
 
@@ -75,14 +75,15 @@ namespace CoffeeConsoleTest
             Check.That(stickAvailable).IsEqualTo(":1");
         }
 
-        [Test]
-        public void Choose_Coffee_Without_Sugar()
+        [TestCase("C::")]
+        public void Choose_Coffee_Without_Sugar(string command)
         {
             Coffee coffee = new Coffee();
             Sugar sugar = new Sugar(0);
             Stick stick = new Stick();
+           
             string machineFormat = $"{coffee.MachineEncoding}{sugar.NumberSugarForTheScreen()}{stick.Display()}";
-            Check.That(machineFormat).IsEqualTo("C:0:0");
+            Check.That(machineFormat).IsEqualTo(command);
         }
 
 

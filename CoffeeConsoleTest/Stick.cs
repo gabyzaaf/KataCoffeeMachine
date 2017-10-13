@@ -16,12 +16,16 @@
 
         internal string Display()
         {
+            if (numberStick == 0)
+            {
+                return ":";
+            }
             return $":{numberStick.ToString()}";
         }
 
         public override string ToString()
         {
-            return $":{numberStick.ToString()}";
+            return Display();
         }
     }
 }

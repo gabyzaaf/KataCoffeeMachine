@@ -24,12 +24,16 @@
 
         public string NumberSugarForTheScreen()
         {
+            if (sugar == 0)
+            {
+                return ":";
+            }
             return $":{this.sugar.ToString()}";
         }
 
         public override string ToString()
         {
-            return $":{this.sugar.ToString()}";
+            return NumberSugarForTheScreen();
         }
     }
 }
