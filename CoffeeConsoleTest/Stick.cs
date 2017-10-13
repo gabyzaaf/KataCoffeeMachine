@@ -1,6 +1,6 @@
 ﻿namespace CoffeeConsoleTest
 {
-    internal class Stick
+    public class Stick
     {
         private int numberStick;
 

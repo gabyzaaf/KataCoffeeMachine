@@ -1,4 +1,5 @@
-﻿using NFluent;
+﻿using KataCoffeMachineConsole;
+using NFluent;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -32,8 +33,8 @@ namespace CoffeeConsoleTest
                 throw new Exception("The choose is not a chocolate");
             }
 
-            Coff chocolate = new Coff();
-            Check.That(chocolate.MachineEncoding).Equals("H:");
+            Chocolate chocolate = new Chocolate();
+            Check.That(chocolate.MachineEncoding).Equals("H");
         }
 
         [TestCase("Coffee")]
@@ -84,6 +85,16 @@ namespace CoffeeConsoleTest
            
             string machineFormat = $"{coffee.MachineEncoding}{sugar.NumberSugarForTheScreen()}{stick.Display()}";
             Check.That(machineFormat).IsEqualTo(command);
+        }
+
+        [TestCase("H::")]
+        public void Choose_Chocolate_With_Sugar(string command)
+        {
+            Chocolate chocolate = new Chocolate();
+            Sugar sugar = new Sugar(0);
+            Stick stick = new Stick();
+            var userChoice = new UserChoice(chocolate,sugar,stick);
+            Check.That(userChoice.DisplayForChocolate()).IsEqualTo(command);
         }
 
 

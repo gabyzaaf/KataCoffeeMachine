@@ -1,6 +1,6 @@
 ﻿namespace CoffeeConsoleTest
 {
-    internal class Sugar
+    public class Sugar
     {
         private int sugar;
 

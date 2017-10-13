@@ -57,6 +57,7 @@
     <Compile Include="Stick.cs" />
     <Compile Include="Sugar.cs" />
     <Compile Include="Tea.cs" />
+    <Compile Include="UserChoice.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

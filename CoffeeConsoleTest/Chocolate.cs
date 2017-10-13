@@ -1,13 +1,14 @@
 ﻿namespace CoffeeConsoleTest
 {
-    internal class Coff
+    public class Chocolate
     {
-        public string MachineEncoding { get; private set; } = "H:";
+        public string MachineEncoding { get; private set; } = "H";
 
-        public Coff()
+        public Chocolate()
         {
 
         }
+
 
         public override string ToString()
         {
