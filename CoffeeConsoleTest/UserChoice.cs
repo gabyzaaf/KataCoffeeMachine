@@ -15,7 +15,8 @@ namespace KataCoffeMachineConsole
         {
             this.sugar = sugar;
             this.stick = stick;
-            Verify();
+             VerifySugarNumber();
+            ObtainOne();
         }
 
         public UserChoice(Tea tea, Sugar sugar, Stick stick) : this(sugar,stick)
@@ -35,7 +36,15 @@ namespace KataCoffeMachineConsole
           
         }
 
-        private void Verify()
+        private void VerifySugarNumber()
+        {
+            if (!sugar.IsValid())
+            {
+                throw new Exception("The number is more than 2");
+            }
+        }
+
+        private void ObtainOne()
         {
             if (this.sugar.IsTake())
             {

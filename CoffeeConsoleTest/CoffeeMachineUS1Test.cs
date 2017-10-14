@@ -97,6 +97,16 @@ namespace CoffeeConsoleTest
             Check.That(userChoice.DisplayForChocolate()).IsEqualTo(command);
         }
 
+        [Test]
+        public void Should_Send_An_Error_When_The_Suggar_is_more_than_two()
+        {
+            Chocolate chocolate = new Chocolate();
+            Sugar sugar = new Sugar(3);
+            Stick stick = new Stick();
+            Check.ThatCode(() => { new UserChoice(chocolate, sugar, stick); }).Throws<Exception>();
+
+        }
+
 
         
     }
