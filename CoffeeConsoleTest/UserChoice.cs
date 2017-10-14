@@ -9,12 +9,18 @@ namespace KataCoffeMachineConsole
         private Sugar sugar;
         private Stick stick;
         private Chocolate chocolate;
+        private Tea tea;
 
         public UserChoice(Sugar sugar,Stick stick)
         {
             this.sugar = sugar;
             this.stick = stick;
+            Verify();
+        }
 
+        public UserChoice(Tea tea, Sugar sugar, Stick stick) : this(sugar,stick)
+        {
+            this.tea = tea;
         }
 
         public UserChoice(Coffee coffee, Sugar sugar, Stick stick) : this(sugar,stick)
@@ -29,7 +35,7 @@ namespace KataCoffeMachineConsole
           
         }
 
-        public void Verify()
+        private void Verify()
         {
             if (this.sugar.IsTake())
             {
@@ -44,7 +50,12 @@ namespace KataCoffeMachineConsole
 
         internal string DisplayForChocolate()
         {
-            return $"{chocolate}{sugar}{stick}"; ;
+            return $"{chocolate}{sugar}{stick}";
+        }
+
+        internal object DisplayForTea()
+        {
+            return $"{tea}{sugar}{stick}";
         }
     }
 }

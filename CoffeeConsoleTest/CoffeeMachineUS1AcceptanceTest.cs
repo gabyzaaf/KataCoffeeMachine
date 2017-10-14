@@ -38,8 +38,17 @@ namespace KataCoffeMachineConsole
             Sugar sugar = new Sugar(1);
             Stick stick = new Stick();
             var userChoice = new UserChoice(chocolate, sugar, stick);
-            userChoice.Verify();
             Check.That(userChoice.DisplayForChocolate()).IsEqualTo(parameterCode);
+        }
+
+        [TestCase("T:2:1")]
+        public void Should_Return_Tea_With_Two_Sugar_And_One_Stick(string parameterCode)
+        {
+            Tea tea = new Tea();
+            Sugar sugar = new Sugar(2);
+            Stick stick = new Stick();
+            var userChoice = new UserChoice(tea,sugar,stick);
+            Check.That(userChoice.DisplayForTea()).IsEqualTo(parameterCode)
         }
     }
 }
