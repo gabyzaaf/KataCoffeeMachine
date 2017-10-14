@@ -28,7 +28,18 @@ namespace KataCoffeMachineConsole
             Sugar sugar = new Sugar(0);
             Stick stick = new Stick();
             var userChoice = new UserChoice(coffee,sugar,stick);
-            Check.That(userChoice.DisplayForCoffee()).IsEqualTo("C::");
+            Check.That(userChoice.DisplayForCoffee()).IsEqualTo(parametersCode);
+        }
+
+        [TestCase("H:1:1")]
+        public void Should_Return_Chocolate_With_One_Sugar_And_One_Stick(string parameterCode)
+        {
+            Chocolate chocolate = new Chocolate();
+            Sugar sugar = new Sugar(1);
+            Stick stick = new Stick();
+            var userChoice = new UserChoice(chocolate, sugar, stick);
+            userChoice.Verify();
+            Check.That(userChoice.DisplayForChocolate()).IsEqualTo(parameterCode);
         }
     }
 }

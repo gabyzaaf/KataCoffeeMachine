@@ -14,6 +14,7 @@ namespace KataCoffeMachineConsole
         {
             this.sugar = sugar;
             this.stick = stick;
+
         }
 
         public UserChoice(Coffee coffee, Sugar sugar, Stick stick) : this(sugar,stick)
@@ -26,6 +27,14 @@ namespace KataCoffeMachineConsole
         {
             this.chocolate = chocolate;
           
+        }
+
+        public void Verify()
+        {
+            if (this.sugar.IsTake())
+            {
+                this.stick.ObtainOne();
+            }
         }
 
         internal string DisplayForCoffee()

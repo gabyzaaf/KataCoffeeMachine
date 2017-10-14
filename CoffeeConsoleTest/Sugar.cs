@@ -1,4 +1,6 @@
-﻿namespace CoffeeConsoleTest
+﻿using System;
+
+namespace CoffeeConsoleTest
 {
     public class Sugar
     {
@@ -34,6 +36,15 @@
         public override string ToString()
         {
             return NumberSugarForTheScreen();
+        }
+
+        internal bool IsTake()
+        {
+            if (sugar > 0 && sugar < 3)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
