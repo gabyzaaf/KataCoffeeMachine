@@ -30,6 +30,13 @@ namespace KataCoffeMachineConsole
          
         }
 
+        internal double AddMoneyForChocolate(double price)
+        {
+
+            return chocolate.CalculeThePrice(price);
+            
+        }
+
         public UserChoice(Chocolate chocolate, Sugar sugar, Stick stick) : this(sugar, stick)
         {
             this.chocolate = chocolate;
