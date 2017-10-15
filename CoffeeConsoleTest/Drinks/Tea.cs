@@ -18,10 +18,7 @@ namespace CoffeeConsoleTest
 
         }
 
-        public string GetEncoding()
-        {
-            return MachineEncoding;
-        }
+        
 
         public override string ToString()
         {
