@@ -15,6 +15,7 @@ namespace KataCoffeMachineConsole
         private OrangeJuice orangeJuice;
         private Idrink drink;
 
+
         public UserChoice(Sugar sugar,Stick stick)
         {
             if (sugar == null)
@@ -68,6 +69,10 @@ namespace KataCoffeMachineConsole
 
         internal string DisplayClientCommand()
         {
+            if (this.drink.IsExtraHot())
+            {
+                return $"{drink.DisplayCodeMachine()}h{sugar}{stick}";
+            }
             return $"{drink.DisplayCodeMachine()}{sugar}{stick}";
         }
 
@@ -97,6 +102,11 @@ namespace KataCoffeMachineConsole
         public UserChoice(string drink, Sugar sugar, Stick stick) : this(sugar,stick)
         {
             this.drink = Machine.PrepareDrink(drink);
+        }
+
+        public UserChoice(string drink, Sugar sugar, Stick stick, bool extraHot) : this(drink,sugar, stick)
+        {
+            this.drink.NeedToBeHot();
         }
 
         internal float AddMoneyForCoffee(double price)

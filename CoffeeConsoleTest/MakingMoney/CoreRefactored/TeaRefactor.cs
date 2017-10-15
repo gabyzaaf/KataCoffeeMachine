@@ -10,6 +10,7 @@ namespace CoffeeConsoleTest.MakingMoney
     {
 
         private readonly string machineCode = "T";
+        private bool extraHot;
 
         public float CalculeThePrice(double price)
         {
@@ -23,11 +24,12 @@ namespace CoffeeConsoleTest.MakingMoney
 
         public bool IsExtraHot()
         {
-            return true;
+            return extraHot;
         }
 
-
-
-        
+        public void NeedToBeHot()
+        {
+            extraHot = true;
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace CoffeeConsoleTest.MakingMoney
         float CalculeThePrice(double price);
         bool IsExtraHot();
         string DisplayCodeMachine();
+        void NeedToBeHot();
     }
 }

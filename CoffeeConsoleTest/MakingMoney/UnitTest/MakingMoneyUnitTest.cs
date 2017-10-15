@@ -15,14 +15,14 @@ namespace CoffeeConsoleTest.MakingMoney
         public void Should_Return_The_Code_Format_After_refacto()
         {
             Idrink drink = new TeaRefactor();
-            Check.That(drink.IsExtraHot()).IsTrue();
+            Check.That(drink.IsExtraHot()).IsFalse();
         }
 
         [Test]
         public void Should_Return_The_TeaRefactor_From_The_Factory()
         {
             Idrink drink = Machine.PrepareDrink("Tea");
-            Check.That(drink.IsExtraHot()).IsTrue();
+            Check.That(drink.IsExtraHot()).IsFalse();
         }
 
         [TestCase("T")]
@@ -53,6 +53,13 @@ namespace CoffeeConsoleTest.MakingMoney
             Check.That(commandMadeByTheClient.DisplayClientCommand()).IsEqualTo(machineCode);
         }
 
+
+        [TestCase("Th:2:1")]
+        public void Should_Return_The_Code_Value_Machine_For_The_HotTea_With_Two_Sugar_By_The_Command(string machineCode)
+        {
+            var commandMadeByTheClient = new UserChoice("Tea", new Sugar(2), new Stick(),true);
+            Check.That(commandMadeByTheClient.DisplayClientCommand()).IsEqualTo(machineCode);
+        }
 
     }
 }
