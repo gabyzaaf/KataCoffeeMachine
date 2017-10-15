@@ -17,9 +17,23 @@ namespace KataCoffeMachineConsole
 
         public UserChoice(Sugar sugar,Stick stick)
         {
-            this.sugar = sugar;
-            this.stick = stick;
-             VerifySugarNumber();
+            if (sugar == null)
+            {
+                this.sugar = new Sugar();
+            }
+            else
+            {
+                this.sugar = sugar;
+            }
+            if (stick == null)
+            {
+                this.stick = new Stick();
+            }
+            else
+            {
+                this.stick = stick;
+            }
+            VerifySugarNumber();
             ObtainOne();
         }
 
@@ -78,10 +92,11 @@ namespace KataCoffeMachineConsole
             this.chocolate = chocolate;
         }
 
-        public UserChoice(string drink):this(new Sugar(),new Stick())
+        
+
+        public UserChoice(string drink, Sugar sugar, Stick stick) : this(sugar,stick)
         {
             this.drink = Machine.PrepareDrink(drink);
-
         }
 
         internal float AddMoneyForCoffee(double price)

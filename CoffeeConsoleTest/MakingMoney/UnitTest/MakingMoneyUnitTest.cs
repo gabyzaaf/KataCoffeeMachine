@@ -35,9 +35,24 @@ namespace CoffeeConsoleTest.MakingMoney
         [TestCase("T::")]
         public void Should_Return_The_Code_Value_Machine_For_The_Tea_By_The_Command(string machineCode)
         {
-            var commandMadeByTheClient = new UserChoice("Tea");
+            var commandMadeByTheClient = new UserChoice("Tea",null,null);
             Check.That(commandMadeByTheClient.DisplayClientCommand()).IsEqualTo(machineCode);
         }
+
+        [TestCase("T:1:1")]
+        public void Should_Return_The_Code_Value_Machine_For_The_Tea_With_One_Sugar_By_The_Command(string machineCode)
+        {
+            var commandMadeByTheClient = new UserChoice("Tea",new Sugar(1),new Stick());
+            Check.That(commandMadeByTheClient.DisplayClientCommand()).IsEqualTo(machineCode);
+        }
+
+        [TestCase("T:2:1")]
+        public void Should_Return_The_Code_Value_Machine_For_The_Tea_With_Two_Sugar_By_The_Command(string machineCode)
+        {
+            var commandMadeByTheClient = new UserChoice("Tea", new Sugar(2), new Stick());
+            Check.That(commandMadeByTheClient.DisplayClientCommand()).IsEqualTo(machineCode);
+        }
+
 
     }
 }
