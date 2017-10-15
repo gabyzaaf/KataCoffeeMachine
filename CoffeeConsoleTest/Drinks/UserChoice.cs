@@ -43,6 +43,12 @@ namespace KataCoffeMachineConsole
           
         }
 
+        internal float AddMoneyForCoffee(double price)
+        {
+            
+            return coffee.CalculeThePrice(price);
+        }
+
         private void VerifySugarNumber()
         {
             if (!sugar.IsValid())
