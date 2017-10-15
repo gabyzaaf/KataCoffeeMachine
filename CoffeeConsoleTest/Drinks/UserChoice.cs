@@ -1,6 +1,7 @@
 ﻿using System;
 using CoffeeConsoleTest;
 using CoffeeConsoleTest.ExtraHot.AcceptanceTest;
+using CoffeeConsoleTest.MakingMoney;
 
 namespace KataCoffeMachineConsole
 {
@@ -12,6 +13,7 @@ namespace KataCoffeMachineConsole
         private Chocolate chocolate;
         private Tea tea;
         private OrangeJuice orangeJuice;
+        private Idrink drink;
 
         public UserChoice(Sugar sugar,Stick stick)
         {
@@ -25,7 +27,7 @@ namespace KataCoffeMachineConsole
         {
             this.tea = tea;
         }
-
+        
         internal float AddMoneyForOrangeJuice(double price)
         {
             
@@ -50,7 +52,10 @@ namespace KataCoffeMachineConsole
             
         }
 
-        
+        internal string DisplayClientCommand()
+        {
+            return $"{drink.DisplayCodeMachine()}{sugar}{stick}";
+        }
 
         public UserChoice(Chocolate chocolate, Sugar sugar, Stick stick) : this(sugar, stick)
         {
@@ -73,9 +78,12 @@ namespace KataCoffeMachineConsole
             this.chocolate = chocolate;
         }
 
-       
+        public UserChoice(string drink):this(new Sugar(),new Stick())
+        {
+            this.drink = Machine.PrepareDrink(drink);
 
-        
+        }
+
         internal float AddMoneyForCoffee(double price)
         {
             

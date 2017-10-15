@@ -1,4 +1,5 @@
-﻿using NFluent;
+﻿using KataCoffeMachineConsole;
+using NFluent;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,18 @@ namespace CoffeeConsoleTest.MakingMoney
             Check.That(drink.IsExtraHot()).IsTrue();
         }
 
-        [TestCase("M")]
-        public void Should_Return_The_Code_Value_Machine(string machineCode)
+        [TestCase("T")]
+        public void Should_Return_The_Code_Value_Machine_For_The_Tea(string machineCode)
         {
             var drink = Machine.PrepareDrink("Tea");
             Check.That(drink.DisplayCodeMachine()).IsEqualTo(machineCode);
+        }
+
+        [TestCase("T::")]
+        public void Should_Return_The_Code_Value_Machine_For_The_Tea_By_The_Command(string machineCode)
+        {
+            var commandMadeByTheClient = new UserChoice("Tea");
+            Check.That(commandMadeByTheClient.DisplayClientCommand()).IsEqualTo(machineCode);
         }
 
     }

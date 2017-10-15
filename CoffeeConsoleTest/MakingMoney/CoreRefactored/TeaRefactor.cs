@@ -9,7 +9,7 @@ namespace CoffeeConsoleTest.MakingMoney
     public class TeaRefactor : Idrink
     {
 
-        private readonly string machineCode = "M";
+        private readonly string machineCode = "T";
 
         public float CalculeThePrice(double price)
         {
