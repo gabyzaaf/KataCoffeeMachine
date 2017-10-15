@@ -8,14 +8,26 @@ namespace CoffeeConsoleTest.MakingMoney
 {
     public class TeaRefactor : Idrink
     {
+
+        private readonly string machineCode = "M";
+
         public float CalculeThePrice(double price)
         {
             throw new NotImplementedException();
+        }
+
+        public string DisplayCodeMachine()
+        {
+            return machineCode;
         }
 
         public bool IsExtraHot()
         {
             return true;
         }
+
+
+
+        
     }
 }
