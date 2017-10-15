@@ -59,6 +59,9 @@
     <Compile Include="Drinks\Sugar.cs" />
     <Compile Include="Drinks\Tea.cs" />
     <Compile Include="Drinks\UserChoice.cs" />
+    <Compile Include="ExtraHot\AcceptanceTest\ExtraHotAndOrangeJuiceAcceptanceTest.cs" />
+    <Compile Include="ExtraHot\OrangeJuiceA.cs" />
+    <Compile Include="ExtraHot\UnitTest\ExtraHotAndOrangeJuiceUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

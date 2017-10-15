@@ -50,6 +50,8 @@ namespace KataCoffeMachineConsole
             
         }
 
+        
+
         public UserChoice(Chocolate chocolate, Sugar sugar, Stick stick) : this(sugar, stick)
         {
             this.chocolate = chocolate;
@@ -61,6 +63,22 @@ namespace KataCoffeMachineConsole
             this.orangeJuice = orangeJuice;
         }
 
+        public UserChoice(Coffee coffee):this(new Sugar(),new Stick())
+        {
+            this.coffee = coffee;
+        }
+
+        public UserChoice(Chocolate chocolate): this(new Sugar(),new Stick())
+        {
+            this.chocolate = chocolate;
+        }
+
+        internal string DisplayForChocolateHot()
+        {
+            return $"{chocolate}h{sugar}{stick}";
+        }
+
+        
         internal float AddMoneyForCoffee(double price)
         {
             
@@ -90,11 +108,22 @@ namespace KataCoffeMachineConsole
 
         internal string DisplayForCoffee()
         {
+            if (coffee.IsExtraHot())
+            {
+                return $"{coffee}h{sugar}{stick}";
+            }
             return $"{coffee}{sugar}{stick}";
         }
 
+        
+
+
         internal string DisplayForChocolate()
         {
+            if (chocolate.IsExtraHot())
+            {
+                return $"{chocolate}h{sugar}{stick}";
+            }
             return $"{chocolate}{sugar}{stick}";
         }
 

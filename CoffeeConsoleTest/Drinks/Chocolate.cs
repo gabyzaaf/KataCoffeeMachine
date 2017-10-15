@@ -6,12 +6,17 @@ namespace CoffeeConsoleTest
     {
         public string MachineEncoding { get; private set; } = "H";
         private double price = 0.50;
+        private bool extraHot;
 
         public Chocolate()
         {
 
         }
 
+        public Chocolate(bool extraHot)
+        {
+            this.extraHot = extraHot;
+        }
 
         public override string ToString()
         {
@@ -26,6 +31,11 @@ namespace CoffeeConsoleTest
                 return 0;
             }
             return restPrice;
+        }
+
+        internal bool IsExtraHot()
+        {
+            return extraHot;
         }
     }
 }

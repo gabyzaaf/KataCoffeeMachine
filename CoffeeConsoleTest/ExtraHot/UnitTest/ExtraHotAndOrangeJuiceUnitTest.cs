@@ -27,5 +27,44 @@ namespace CoffeeConsoleTest.ExtraHot.UnitTest
             var userChoice = new UserChoice(orangeJuice);
             Check.That(userChoice.DisplayForOrangeJuice()).IsEqualTo(orangeJuiceFormat);
         }
+
+        [TestCase("Ch::")]
+        public void Should_Add_ExtraHot_Coffee_Without_Sugar(string extraHotCoffeeFormat)
+        {
+            Coffee coffee = new Coffee(true);
+            var userChoice = new UserChoice(coffee);
+            Check.That(userChoice.DisplayForCoffee()).IsEqualTo(extraHotCoffeeFormat);
+        }
+
+        [TestCase("Hh:1:1")]
+        public void Should_Add_ExtraHot_Chocolate_With_One_Sugar_And_One_Stick(string extratHotChocolateFormat)
+        {
+            var chocolate = new Chocolate(true);
+            var sugar = new Sugar(1);
+            var stick = new Stick();
+            var userChoice = new UserChoice(chocolate, sugar, stick);
+            string userChoiceFormat = userChoice.DisplayForChocolate();
+            Check.That(userChoiceFormat).IsEqualTo(extratHotChocolateFormat);
+        }
+
+
+        [TestCase("Hh::")]
+        public void Should_Add_ExtraHot_Chocolate(string extratHotChocolateFormat)
+        {
+            var chocolate = new Chocolate(true);            
+            var userChoice = new UserChoice(chocolate);
+            string userChoiceFormat = userChoice.DisplayForChocolate();
+            Check.That(userChoiceFormat).IsEqualTo(extratHotChocolateFormat);
+        }
+
+        [TestCase("Hh:2:1")]
+        public void Should_Add_ExtraHot_Chocolate_With_2_Sugar_And_One_Stick(string extratHotChocolateFormat)
+        {
+            var chocolate = new Chocolate(true);
+            var userChoice = new UserChoice(chocolate,new Sugar(2),new Stick());
+            string userChoiceFormat = userChoice.DisplayForChocolate();
+            Check.That(userChoiceFormat).IsEqualTo(extratHotChocolateFormat);
+        }
+
     }
 }
