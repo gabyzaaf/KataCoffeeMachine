@@ -47,5 +47,15 @@ namespace CoffeeConsoleTest.ExtraHot.AcceptanceTest
             Check.That(userChoiceFormat).IsEqualTo(extratHotChocolateFormat);
         }
 
+        [TestCase("Th:2:1")]
+        public void Should_Add_ExtraHot_Tea_With_Two_Sugar_And_One_Stick(string extraHotTea)
+        {
+            var tea = new Tea(true);
+            var sugar = new Sugar(2);
+            var stick = new Stick();
+            var userChoice = new UserChoice(tea, sugar, stick);
+            Check.That(userChoice.DisplayForTea()).IsEqualTo(extraHotTea);
+        }
+
     }
 }

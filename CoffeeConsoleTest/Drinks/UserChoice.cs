@@ -73,10 +73,7 @@ namespace KataCoffeMachineConsole
             this.chocolate = chocolate;
         }
 
-        internal string DisplayForChocolateHot()
-        {
-            return $"{chocolate}h{sugar}{stick}";
-        }
+       
 
         
         internal float AddMoneyForCoffee(double price)
@@ -84,6 +81,8 @@ namespace KataCoffeMachineConsole
             
             return coffee.CalculeThePrice(price);
         }
+
+       
 
         private void VerifySugarNumber()
         {
@@ -129,6 +128,11 @@ namespace KataCoffeMachineConsole
 
         internal object DisplayForTea()
         {
+            if (tea.IsExtraHot())
+            {
+                return $"{tea}h{sugar}{stick}";
+            }
+
             return $"{tea}{sugar}{stick}";
         }
     }

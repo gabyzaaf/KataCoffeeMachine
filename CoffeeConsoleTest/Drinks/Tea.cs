@@ -6,6 +6,17 @@ namespace CoffeeConsoleTest
     {
         public string MachineEncoding { get; private set; } = "T";
         private double price = 0.40;
+        private bool extraHot;
+
+        public Tea(bool extraHot)
+        {
+            this.extraHot = extraHot;
+        }
+
+        public Tea()
+        {
+
+        }
 
         public string GetEncoding()
         {
@@ -25,6 +36,11 @@ namespace CoffeeConsoleTest
                 return 0;
             }
             return Convert.ToSingle(restOfThePrice);
+        }
+
+        internal bool IsExtraHot()
+        {
+            return extraHot;
         }
     }
 }
