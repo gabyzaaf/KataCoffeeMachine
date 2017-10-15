@@ -65,6 +65,11 @@ namespace KataCoffeMachineConsole
             }
         }
 
+        internal float AddMoneyForTea(double price)
+        {
+            return tea.CalculeThePrice(price);
+        }
+
         internal string DisplayForCoffee()
         {
             return $"{coffee}{sugar}{stick}";

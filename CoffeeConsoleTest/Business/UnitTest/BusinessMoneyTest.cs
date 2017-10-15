@@ -42,5 +42,16 @@ namespace CoffeeConsoleTest.Business.UnitTest
             float numberConverted = Convert.ToSingle(number);
             Check.That(userChoice.AddMoneyForCoffee(0.30)).IsEqualTo(numberConverted);
         }
+
+        [TestCase(0.10)]
+        public void AddMoney_Should_Return_10_Cents_For_The_Tea(double number)
+        {
+            Tea tea = new Tea();
+            Sugar sugar = new Sugar();
+            Stick stick = new Stick();
+            var userChoice = new UserChoice(tea, sugar, stick);
+            float numberConverted = Convert.ToSingle(number);
+            Check.That(userChoice.AddMoneyForTea(0.30)).IsEqualTo(numberConverted);
+        }
     }
 }
